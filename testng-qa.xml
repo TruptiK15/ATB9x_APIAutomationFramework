@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/amey/IdeaProjects/ATB9x_APIAutomationFramework/src/test/java/com/thetestingacademy/Tests/Sample/TestIntegrationSample.java">
+        <groups>
+            <run>
+                <include name="qa"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.thetestingacademy.Tests.CRUD.test_CreateBooking">
+
+            </class>
+        </classes>
+    </test>
+</suite>
