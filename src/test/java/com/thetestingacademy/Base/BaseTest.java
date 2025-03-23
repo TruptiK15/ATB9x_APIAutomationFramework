@@ -13,12 +13,12 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class BaseTest {
-    private static final Logger log = LoggerFactory.getLogger(BaseTest.class);
 
     //Common to All Test Cases
-
+    // Base URL, Content Type - json - common
     public RequestSpecification requestSpecification;
     public AssertActions assertActions;
     public ValidatableResponse validatableResponse;
@@ -44,4 +44,20 @@ public class BaseTest {
 //                .build().log().all();
     }
 
+    public String getToken(){
+        requestSpecification = RestAssured
+                .given()
+                .baseUri(APIContrants.BASE_URL)
+                .basePath(APIContrants.AUTH_URL);
+
+        //Setting the payload
+        String payload = payloadManager.setAuthPayload();
+
+        //Get the Token
+        response = requestSpecification.contentType(ContentType.JSON).body(payload).when().post();
+
+        //String Extraction (extract token)
+        String token = payloadManager.getTokenFromJSON(response.asString());
+        return token;
+    }
 }
