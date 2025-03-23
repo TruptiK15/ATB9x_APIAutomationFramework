@@ -9,7 +9,6 @@ public class PayloadManager {
     //Converting the Java Object to String
     Gson gson;
     public String createPayloadBookingAsString(){
-
         //Payload creation
         Booking booking = new Booking();
         booking.setFirstname("Karan");
